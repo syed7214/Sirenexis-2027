@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, MessageSquare, PhoneCall, CheckCircle2, ShieldCheck, ArrowRight, Layers } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ServicesSectionProps {
   onOpenBooking: () => void;
@@ -11,26 +12,29 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-24">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347]">
-              What We Cover
-            </span>
+        <ScrollReveal direction="up">
+          <div className="max-w-3xl mb-16 sm:mb-24">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347]">
+                What We Cover
+              </span>
+            </div>
+            <h2 className="font-serif text-[40px] sm:text-[54px] leading-[1.1] font-medium text-[#051F20] mb-5 text-balance">
+              One team, every channel
+            </h2>
+            <div className="inline-block p-4 rounded-xl bg-[#DAF1DE]/60 border border-[#8EB69B]/40 text-[#0B2B26] text-[15px] leading-relaxed">
+              <span className="font-semibold text-[#051F20]">Quality Assurance Standard: </span>
+              We start on email and chat where quality is instant. Phone added after 2 weeks of QA to guarantee standards.
+            </div>
           </div>
-          <h2 className="font-serif text-[40px] sm:text-[54px] leading-[1.1] font-medium text-[#051F20] mb-5 text-balance">
-            One team, every channel
-          </h2>
-          <div className="inline-block p-4 rounded-xl bg-[#DAF1DE]/60 border border-[#8EB69B]/40 text-[#0B2B26] text-[15px] leading-relaxed">
-            <span className="font-semibold text-[#051F20]">Quality Assurance Standard: </span>
-            We start on email and chat where quality is instant. Phone added after 2 weeks of QA to guarantee standards.
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* 3 Alternating Feature Panels (NOT a generic grid!) */}
         <div className="space-y-20 sm:space-y-28">
           
           {/* Panel 1: Image Left, Glass Card Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <ScrollReveal direction="up">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Image Left */}
             <div className="lg:col-span-6 relative">
@@ -98,9 +102,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
             </div>
 
           </div>
+        </ScrollReveal>
 
           {/* Panel 2: Glass Card Left, Image Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <ScrollReveal direction="up">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Liquid Glass Card Left */}
             <div className="lg:col-span-6 order-2 lg:order-1">
@@ -171,9 +177,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
             </div>
 
           </div>
+        </ScrollReveal>
 
           {/* Panel 3: Image Left, Glass Card Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <ScrollReveal direction="up">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Image Left */}
             <div className="lg:col-span-6 relative">
@@ -238,6 +246,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
             </div>
 
           </div>
+        </ScrollReveal>
 
         </div>
 
