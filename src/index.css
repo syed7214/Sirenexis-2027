@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAF8F2;
+    color: #051F20;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+.liquid-glass {
+  background: rgba(250, 248, 242, 0.75);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 16px 40px rgba(5, 31, 32, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+}
+
+.liquid-glass-mint {
+  background: rgba(218, 241, 222, 0.7);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(142, 182, 155, 0.45);
+  box-shadow: 0 16px 40px rgba(5, 31, 32, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+}
+
+.liquid-glass-dark {
+  background: rgba(11, 43, 38, 0.82);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(142, 182, 155, 0.25);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+}
+
+.font-editorial-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* Subtle Floating & Ambient Animations */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes subtle-float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes subtle-pulse-glow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+.animate-subtle-float-delayed {
+  animation: subtle-float 7s ease-in-out 1.8s infinite;
+}
+
+.animate-subtle-float-reverse {
+  animation: subtle-float-reverse 7.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: subtle-pulse-glow 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-subtle-float,
+  .animate-subtle-float-delayed,
+  .animate-subtle-float-reverse,
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+}

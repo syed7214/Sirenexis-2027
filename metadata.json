@@ -1,0 +1,6 @@
+{
+  "name": "Sirenexis — UK-Managed Customer Support",
+  "description": "Your dedicated support team for half the cost of a UK hire. Managed by our UK entity under English law.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
