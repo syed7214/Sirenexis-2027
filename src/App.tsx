@@ -21,6 +21,7 @@ import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { SavingsCalculatorModal } from './components/SavingsCalculatorModal';
 import { AdminPortalModal } from './components/AdminPortalModal';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
 
 export default function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -42,6 +43,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F2] text-[#051F20] font-sans flex flex-col selection:bg-[#DAF1DE] selection:text-[#051F20]">
+      {/* 0. Thin Fixed Scroll Progress Indicator */}
+      <ScrollProgressBar />
+
       {/* 1. Floating Centered Pill Navigation */}
       <Navbar onOpenBooking={() => handleOpenBooking()} />
 

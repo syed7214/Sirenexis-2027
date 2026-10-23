@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useId } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   X,
   Lock,
   Unlock,
-  KeyRound,
   ShieldCheck,
   Search,
   Download,
@@ -342,11 +341,6 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
               </button>
             </form>
 
-            <div className="mt-6 p-3 rounded-xl bg-[#F4F0E6] border border-[#163832]/10 text-xs text-[#163832]/80 flex items-center gap-2 max-w-xs">
-              <KeyRound className="w-4 h-4 text-[#235347] shrink-0" />
-              <span>Passcode for client/staff access: <strong>1214</strong></span>
-            </div>
-
           </div>
         ) : (
           
@@ -381,7 +375,7 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                   className="py-1.5 px-3 rounded-lg border border-[#163832]/20 text-xs font-semibold text-[#163832] hover:bg-black/5 flex items-center gap-1.5 cursor-pointer"
                 >
                   <Lock className="w-3.5 h-3.5" />
-                  <span>Lock (1214)</span>
+                  <span>Lock Session</span>
                 </button>
                 <button
                   onClick={onClose}
@@ -498,6 +492,16 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                   <Download className="w-3.5 h-3.5 text-[#235347]" />
                   <span>CSV</span>
                 </button>
+
+                <a
+                  href="/project.zip"
+                  download="sirenexis-project.zip"
+                  title="Download complete updated codebase for GitHub/Vercel"
+                  className="py-1.5 px-3 rounded-xl bg-[#051F20] hover:bg-[#163832] text-[#FAF8F2] text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-colors shadow-sm"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#8EB69B]" />
+                  <span>Download Code (ZIP)</span>
+                </a>
 
                 <button
                   type="button"
@@ -807,9 +811,9 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                 <ShieldCheck className="w-4 h-4 text-[#235347]" />
                 <span>Authorized Sirenexis Team & Client Operations</span>
               </div>
-              <div>
-                Passcode: <span className="font-mono font-bold text-[#051F20]">1214</span>
-              </div>
+              <span className="text-[11px] text-[#163832]/60">
+                Confidential • Internal Use Only
+              </span>
             </div>
 
           </div>

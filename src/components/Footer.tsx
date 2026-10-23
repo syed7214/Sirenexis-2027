@@ -103,8 +103,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
             <ul className="space-y-3.5 text-[14px] text-[#163832]/90">
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#235347] shrink-0" />
-                <a href="mailto:hello@sirenexis.com" className="hover:text-[#051F20] underline-offset-2 hover:underline">
-                  hello@sirenexis.com
+                <a href="mailto:info@sirenexis.com" className="hover:text-[#051F20] underline-offset-2 hover:underline">
+                  info@sirenexis.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -115,7 +115,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#235347] shrink-0" />
-                <span>UK: +44 20 8092 6120</span>
+                <a href="tel:+447552242207" className="hover:text-[#051F20] underline-offset-2 hover:underline">
+                  UK: +44 7552 242207
+                </a>
               </li>
             </ul>
 
@@ -145,7 +147,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
               type="button"
               onClick={onOpenAdmin}
               aria-label="Staff & Admin Portal"
-              title="Admin Portal (Passcode: 1214)"
+              title="Staff & Admin Portal"
               className="opacity-35 hover:opacity-100 text-[#163832] hover:text-[#051F20] transition-opacity p-1 -m-1 rounded hover:bg-black/5 cursor-pointer flex items-center gap-1 group"
             >
               <Lock className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
