@@ -84,10 +84,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenPilot }) => {
           {/* Left Column: Text & Editorial Proposition */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             
-            {/* Eyebrow */}
+            {/* Eyebrow with Apple Keynote Shimmer */}
             <div className="inline-flex items-center gap-2 mb-5">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347] bg-[#DAF1DE]/70 px-3 py-1 rounded-full border border-[#8EB69B]/40">
-                UK-Managed Customer Support for UK SMEs
+              <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347] bg-[#DAF1DE]/70 px-3 py-1 rounded-full border border-[#8EB69B]/40 shadow-xs">
+                <span className="apple-badge-shimmer">UK-Managed Customer Support for UK SMEs</span>
               </span>
             </div>
 
@@ -101,19 +101,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenPilot }) => {
               Sirenexis gives you a dedicated, trained support agent who works only for you — answering emails, live chat, WhatsApp and calls. Fully managed, quality-assured, and contracted through our UK entity. No £25k-£35k UK hire overhead.
             </p>
 
-            {/* CTAs */}
+            {/* CTAs with Apple Micro-Spring Physics */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-medium text-[#FAF8F2] bg-[#051F20] rounded-xl hover:bg-[#0B2B26] shadow-[0_12px_28px_rgba(5,31,32,0.18)] hover:shadow-[0_16px_36px_rgba(5,31,32,0.24)] transition-all duration-200 cursor-pointer active:scale-[0.99] whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-medium text-[#FAF8F2] bg-[#051F20] rounded-xl hover:bg-[#0B2B26] shadow-[0_12px_28px_rgba(5,31,32,0.18)] hover:shadow-[0_18px_38px_rgba(5,31,32,0.26)] transition-all duration-200 cursor-pointer apple-spring-button whitespace-nowrap btn-shimmer group"
               >
                 <span>Book a 15-Min Call</span>
-                <ArrowRight className="w-4 h-4 text-[#8EB69B]" />
+                <ArrowRight className="w-4 h-4 text-[#8EB69B] group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
                 onClick={onOpenPilot}
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-[15px] font-medium text-[#163832] bg-transparent hover:bg-[#DAF1DE]/50 border border-[#163832]/25 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-[15px] font-medium text-[#163832] bg-transparent hover:bg-[#DAF1DE]/50 border border-[#163832]/25 rounded-xl transition-all duration-200 cursor-pointer apple-spring-button whitespace-nowrap"
               >
                 <span>See How The Pilot Works</span>
               </button>
@@ -192,7 +192,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenPilot }) => {
               </div>
 
               {/* Signature Liquid Glass Floating Card */}
-              <div className="absolute -bottom-8 -left-4 sm:-bottom-8 sm:-left-8 right-4 sm:right-auto sm:max-w-sm liquid-glass p-5 sm:p-6 rounded-[24px] shadow-[0_20px_48px_rgba(5,31,32,0.14)] border border-white/80 animate-subtle-float will-change-transform z-20">
+              <div className="absolute -bottom-8 -left-4 sm:-bottom-8 sm:-left-8 right-4 sm:right-auto sm:max-w-sm liquid-glass p-5 sm:p-6 rounded-[24px] shadow-[0_20px_48px_rgba(5,31,32,0.14)] border border-white/80 animate-subtle-float will-change-transform z-20 apple-spotlight card-lift">
                 <div className="flex items-start justify-between gap-3 mb-3.5">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-[#DAF1DE] border border-[#8EB69B]/60 flex items-center justify-center text-[#051F20] font-serif text-lg font-bold">

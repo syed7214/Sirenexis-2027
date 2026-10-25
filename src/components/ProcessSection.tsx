@@ -62,7 +62,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
             {steps.map((step, idx) => (
               <div
                 key={step.num}
-                className="bg-[#FAF8F2] border border-[#163832]/15 rounded-[24px] p-7 sm:p-8 flex flex-col justify-between shadow-[0_8px_24px_rgba(5,31,32,0.04)] hover:shadow-[0_16px_36px_rgba(5,31,32,0.08)] hover:-translate-y-1 transition-all duration-300 group"
+                className="liquid-glass border border-white/80 rounded-[24px] p-7 sm:p-8 flex flex-col justify-between shadow-[0_12px_32px_rgba(5,31,32,0.06)] hover:shadow-[0_20px_45px_rgba(5,31,32,0.12)] card-lift transition-all duration-300 group"
               >
                 <div>
                   {/* Step Num & Indicator */}

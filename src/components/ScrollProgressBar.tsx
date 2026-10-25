@@ -45,16 +45,19 @@ export const ScrollProgressBar: React.FC = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[100] h-[3px] pointer-events-none bg-transparent"
+      className="fixed top-0 left-0 right-0 z-[100] h-[3px] pointer-events-none bg-black/5"
       aria-hidden="true"
     >
       {/* Active progress fill */}
       <div
-        className="h-full bg-gradient-to-r from-[#163832] via-[#235347] to-[#8EB69B] origin-left shadow-[0_1px_6px_rgba(142,182,155,0.45)] transition-transform duration-75 ease-out will-change-transform"
+        className="h-full bg-gradient-to-r from-[#163832] via-[#235347] to-[#8EB69B] origin-left relative transition-transform duration-100 ease-out will-change-transform shadow-[0_1px_8px_rgba(142,182,155,0.5)]"
         style={{
           transform: `scaleX(${scrollProgress})`,
         }}
-      />
+      >
+        {/* Apple luminous leading head */}
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-r from-transparent to-[#FAF8F2] shadow-[0_0_10px_#DAF1DE]" />
+      </div>
     </div>
   );
 };

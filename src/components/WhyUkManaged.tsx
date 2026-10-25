@@ -13,7 +13,7 @@ export const WhyUkManaged: React.FC<WhyUkManagedProps> = ({ onOpenBooking }) => 
         {/* Header */}
         <div className="max-w-3xl mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347]">
+            <span className="text-[12px] font-semibold uppercase tracking-[0.18em] apple-badge-shimmer">
               Why UK-Managed
             </span>
           </div>
@@ -29,7 +29,7 @@ export const WhyUkManaged: React.FC<WhyUkManagedProps> = ({ onOpenBooking }) => 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           
           {/* Card 1: UK Entity & Contract */}
-          <div className="liquid-glass p-8 sm:p-9 rounded-[26px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_20px_48px_rgba(5,31,32,0.1)] transition-all duration-300 flex flex-col justify-between">
+          <div className="liquid-glass p-8 sm:p-9 rounded-[26px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_20px_48px_rgba(5,31,32,0.1)] card-lift apple-spotlight transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-[#DAF1DE] border border-[#8EB69B]/40 flex items-center justify-center text-[#051F20] mb-6">
                 <Landmark className="w-6 h-6 text-[#235347]" />
@@ -64,7 +64,7 @@ export const WhyUkManaged: React.FC<WhyUkManagedProps> = ({ onOpenBooking }) => 
           </div>
 
           {/* Card 2: UK Point of Contact */}
-          <div className="liquid-glass-mint p-8 sm:p-9 rounded-[26px] border border-[#8EB69B]/45 shadow-[0_16px_40px_rgba(5,31,32,0.08)] hover:shadow-[0_20px_48px_rgba(5,31,32,0.12)] transition-all duration-300 flex flex-col justify-between">
+          <div className="liquid-glass-mint p-8 sm:p-9 rounded-[26px] border border-[#8EB69B]/45 shadow-[0_16px_40px_rgba(5,31,32,0.08)] hover:shadow-[0_20px_48px_rgba(5,31,32,0.12)] card-lift apple-spotlight transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-[#FAF8F2] border border-[#8EB69B]/50 flex items-center justify-center text-[#051F20] mb-6 shadow-sm">
                 <UserCheck className="w-6 h-6 text-[#235347]" />
@@ -99,7 +99,7 @@ export const WhyUkManaged: React.FC<WhyUkManagedProps> = ({ onOpenBooking }) => 
           </div>
 
           {/* Card 3: Data Protection First */}
-          <div className="liquid-glass p-8 sm:p-9 rounded-[26px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_20px_48px_rgba(5,31,32,0.1)] transition-all duration-300 flex flex-col justify-between">
+          <div className="liquid-glass p-8 sm:p-9 rounded-[26px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_20px_48px_rgba(5,31,32,0.1)] card-lift apple-spotlight transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-[#DAF1DE] border border-[#8EB69B]/40 flex items-center justify-center text-[#051F20] mb-6">
                 <ShieldAlert className="w-6 h-6 text-[#235347]" />

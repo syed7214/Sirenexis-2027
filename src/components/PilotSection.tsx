@@ -47,7 +47,7 @@ export const PilotSection: React.FC<PilotSectionProps> = ({ onOpenBooking }) => 
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347] bg-[#DAF1DE] px-3 py-1 rounded-full border border-[#8EB69B]/40">
-                Risk-Free Evaluation
+                <span className="apple-badge-shimmer">Risk-Free Evaluation</span>
               </span>
             </div>
             <h2 className="font-serif text-[38px] sm:text-[52px] leading-[1.12] font-medium text-[#051F20] mb-4 text-balance">
@@ -63,7 +63,7 @@ export const PilotSection: React.FC<PilotSectionProps> = ({ onOpenBooking }) => 
             {timelineSteps.map((step, idx) => (
               <div
                 key={step.phase}
-                className="bg-[#FAF8F2] border border-[#163832]/15 rounded-[22px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_6px_20px_rgba(5,31,32,0.03)] hover:shadow-[0_12px_28px_rgba(5,31,32,0.08)] hover:-translate-y-1 transition-all"
+                className="bg-[#FAF8F2] border border-[#163832]/15 rounded-[22px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_6px_20px_rgba(5,31,32,0.03)] hover:shadow-[0_12px_28px_rgba(5,31,32,0.08)] card-lift apple-spotlight transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -110,7 +110,7 @@ export const PilotSection: React.FC<PilotSectionProps> = ({ onOpenBooking }) => 
 
             <button
               onClick={onOpenBooking}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-medium transition-all shadow shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-medium transition-all shadow shrink-0 cursor-pointer apple-spring-button btn-shimmer"
             >
               <span>Book Pilot Intake Call</span>
               <ArrowRight className="w-4 h-4 text-[#8EB69B]" />

@@ -55,7 +55,7 @@ export const TestimonialsSection: React.FC = () => {
             
             {/* Small Quote 1: Trades & Home Services */}
             <ScrollReveal delay={120} direction="up">
-              <div className="bg-[#FAF8F2] border border-[#163832]/15 rounded-[26px] p-7 sm:p-8 shadow-sm hover:shadow-md card-lift flex flex-col justify-between">
+              <div className="liquid-glass border border-white/80 rounded-[26px] p-7 sm:p-8 shadow-[0_12px_32px_rgba(5,31,32,0.05)] hover:shadow-[0_20px_45px_rgba(5,31,32,0.1)] card-lift flex flex-col justify-between">
                 <div>
                   <Quote className="w-6 h-6 text-[#8EB69B] mb-4 opacity-70" />
                   <p className="font-serif text-xl sm:text-[22px] leading-[1.38] text-[#051F20] mb-6 font-normal">
@@ -68,7 +68,7 @@ export const TestimonialsSection: React.FC = () => {
                     <div className="font-semibold text-sm text-[#051F20]">Marcus V.</div>
                     <div className="text-xs text-[#235347]">Founder · Commercial & Domestic Heating Services</div>
                   </div>
-                  <span className="text-[11px] font-semibold text-[#235347] bg-[#F4F0E6] px-2.5 py-0.5 rounded-md">
+                  <span className="text-[11px] font-semibold text-[#235347] bg-[#DAF1DE]/70 px-2.5 py-0.5 rounded-md border border-[#8EB69B]/40">
                     £2k+ Jobs Saved
                   </span>
                 </div>
@@ -77,7 +77,7 @@ export const TestimonialsSection: React.FC = () => {
 
             {/* Small Quote 2: E-commerce */}
             <ScrollReveal delay={240} direction="up">
-              <div className="bg-[#FAF8F2] border border-[#163832]/15 rounded-[26px] p-7 sm:p-8 shadow-sm hover:shadow-md card-lift flex flex-col justify-between">
+              <div className="liquid-glass border border-white/80 rounded-[26px] p-7 sm:p-8 shadow-[0_12px_32px_rgba(5,31,32,0.05)] hover:shadow-[0_20px_45px_rgba(5,31,32,0.1)] card-lift flex flex-col justify-between">
                 <div>
                   <Quote className="w-6 h-6 text-[#8EB69B] mb-4 opacity-70" />
                   <p className="font-serif text-xl sm:text-[22px] leading-[1.38] text-[#051F20] mb-6 font-normal">
@@ -90,7 +90,7 @@ export const TestimonialsSection: React.FC = () => {
                     <div className="font-semibold text-sm text-[#051F20]">Clara E.</div>
                     <div className="text-xs text-[#235347]">Head of Customer Operations · UK Homeware Brand</div>
                   </div>
-                  <span className="text-[11px] font-semibold text-[#235347] bg-[#F4F0E6] px-2.5 py-0.5 rounded-md">
+                  <span className="text-[11px] font-semibold text-[#235347] bg-[#DAF1DE]/70 px-2.5 py-0.5 rounded-md border border-[#8EB69B]/40">
                     Gorgias First Response: 3m
                   </span>
                 </div>

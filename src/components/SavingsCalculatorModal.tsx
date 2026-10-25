@@ -21,8 +21,8 @@ export const SavingsCalculatorModal: React.FC<SavingsCalculatorModalProps> = ({
   const result = calculateSupportEconomics(planType, ukWage);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#051F20]/70 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[28px] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#051F20]/75 backdrop-blur-md transition-opacity duration-300">
+      <div className="relative w-full max-w-xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[28px] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col apple-sheet-animate">
         
         {/* Header */}
         <div className="p-6 border-b border-[#163832]/10 flex items-center justify-between bg-[#F4F0E6]/60">
@@ -152,7 +152,7 @@ export const SavingsCalculatorModal: React.FC<SavingsCalculatorModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="py-3 px-5 rounded-xl border border-[#163832]/20 text-[#163832] text-xs font-semibold hover:bg-black/5"
+              className="py-3 px-5 rounded-xl border border-[#163832]/20 text-[#163832] text-xs font-semibold hover:bg-black/5 apple-spring-button cursor-pointer"
             >
               Close
             </button>
@@ -162,7 +162,7 @@ export const SavingsCalculatorModal: React.FC<SavingsCalculatorModalProps> = ({
                 onClose();
                 onBookCall();
               }}
-              className="py-3 px-6 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-semibold flex items-center gap-2 shadow"
+              className="py-3 px-6 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-semibold flex items-center gap-2 shadow apple-spring-button cursor-pointer btn-shimmer"
             >
               <span>Book a Call</span>
               <ArrowRight className="w-4 h-4 text-[#8EB69B]" />

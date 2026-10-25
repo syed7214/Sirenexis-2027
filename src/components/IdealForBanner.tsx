@@ -18,7 +18,7 @@ export const IdealForBanner: React.FC = () => {
           </div>
 
           {/* Business Profile Benchmarks */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 bg-[#FAF8F2] p-5 sm:p-6 rounded-2xl border border-[#163832]/15 shadow-sm">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 liquid-glass p-5 sm:p-6 rounded-2xl border border-white/80 shadow-[0_12px_32px_rgba(5,31,32,0.06)]">
             <div className="flex items-center gap-2.5">
               <div className="p-2 rounded-lg bg-[#DAF1DE] text-[#051F20]">
                 <Users className="w-4 h-4 text-[#235347]" />

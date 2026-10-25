@@ -112,64 +112,97 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
                   </div>
 
                   {/* Name & Email */}
+                  {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-medium text-[#DAF1DE] mb-1.5">
-                        Your Full Name
-                      </label>
+                    <div className="relative">
                       <input
+                        id="cta-fullName"
                         type="text"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        placeholder="e.g. David Sterling"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#051F20]/70 border border-[#8EB69B]/30 text-[#FAF8F2] placeholder-[#8EB69B]/40 text-sm focus:outline-none focus:border-[#8EB69B] transition-colors"
+                        placeholder=" "
+                        className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-[#051F20]/75 border border-[#8EB69B]/30 text-[#FAF8F2] text-sm focus:outline-none focus:border-[#8EB69B] focus:ring-2 focus:ring-[#8EB69B]/20 transition-all placeholder-transparent"
                       />
-                      {errors.fullName && <p className="text-xs text-rose-300 mt-1">{errors.fullName}</p>}
+                      <label
+                        htmlFor="cta-fullName"
+                        className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                          formData.fullName
+                            ? 'top-1.5 text-[11px] font-medium text-[#8EB69B]'
+                            : 'top-3.5 text-sm text-[#FAF8F2]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-medium peer-focus:text-[#8EB69B]'
+                        }`}
+                      >
+                        Your Full Name *
+                      </label>
+                      {errors.fullName && <p className="text-xs text-rose-300 mt-1 pl-1">{errors.fullName}</p>}
                     </div>
 
-                    <div>
-                      <label className="block text-xs font-medium text-[#DAF1DE] mb-1.5">
-                        Business Email
-                      </label>
+                    <div className="relative">
                       <input
+                        id="cta-businessEmail"
                         type="email"
                         value={formData.businessEmail}
                         onChange={(e) => setFormData({ ...formData, businessEmail: e.target.value })}
-                        placeholder="david@company.co.uk"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#051F20]/70 border border-[#8EB69B]/30 text-[#FAF8F2] placeholder-[#8EB69B]/40 text-sm focus:outline-none focus:border-[#8EB69B] transition-colors"
+                        placeholder=" "
+                        className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-[#051F20]/75 border border-[#8EB69B]/30 text-[#FAF8F2] text-sm focus:outline-none focus:border-[#8EB69B] focus:ring-2 focus:ring-[#8EB69B]/20 transition-all placeholder-transparent"
                       />
-                      {errors.businessEmail && <p className="text-xs text-rose-300 mt-1">{errors.businessEmail}</p>}
+                      <label
+                        htmlFor="cta-businessEmail"
+                        className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                          formData.businessEmail
+                            ? 'top-1.5 text-[11px] font-medium text-[#8EB69B]'
+                            : 'top-3.5 text-sm text-[#FAF8F2]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-medium peer-focus:text-[#8EB69B]'
+                        }`}
+                      >
+                        Business Email *
+                      </label>
+                      {errors.businessEmail && <p className="text-xs text-rose-300 mt-1 pl-1">{errors.businessEmail}</p>}
                     </div>
                   </div>
 
                   {/* Company & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-medium text-[#DAF1DE] mb-1.5">
-                        Company Name
-                      </label>
+                    <div className="relative">
                       <input
+                        id="cta-companyName"
                         type="text"
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                        placeholder="Sterling & Co"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#051F20]/70 border border-[#8EB69B]/30 text-[#FAF8F2] placeholder-[#8EB69B]/40 text-sm focus:outline-none focus:border-[#8EB69B] transition-colors"
+                        placeholder=" "
+                        className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-[#051F20]/75 border border-[#8EB69B]/30 text-[#FAF8F2] text-sm focus:outline-none focus:border-[#8EB69B] focus:ring-2 focus:ring-[#8EB69B]/20 transition-all placeholder-transparent"
                       />
-                      {errors.companyName && <p className="text-xs text-rose-300 mt-1">{errors.companyName}</p>}
+                      <label
+                        htmlFor="cta-companyName"
+                        className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                          formData.companyName
+                            ? 'top-1.5 text-[11px] font-medium text-[#8EB69B]'
+                            : 'top-3.5 text-sm text-[#FAF8F2]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-medium peer-focus:text-[#8EB69B]'
+                        }`}
+                      >
+                        Company Name *
+                      </label>
+                      {errors.companyName && <p className="text-xs text-rose-300 mt-1 pl-1">{errors.companyName}</p>}
                     </div>
 
-                    <div>
-                      <label className="block text-xs font-medium text-[#DAF1DE] mb-1.5">
-                        UK Phone Number
-                      </label>
+                    <div className="relative">
                       <input
+                        id="cta-phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+44 20 7946 0192"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#051F20]/70 border border-[#8EB69B]/30 text-[#FAF8F2] placeholder-[#8EB69B]/40 text-sm focus:outline-none focus:border-[#8EB69B] transition-colors"
+                        placeholder=" "
+                        className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-[#051F20]/75 border border-[#8EB69B]/30 text-[#FAF8F2] text-sm focus:outline-none focus:border-[#8EB69B] focus:ring-2 focus:ring-[#8EB69B]/20 transition-all placeholder-transparent"
                       />
-                      {errors.phone && <p className="text-xs text-rose-300 mt-1">{errors.phone}</p>}
+                      <label
+                        htmlFor="cta-phone"
+                        className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                          formData.phone
+                            ? 'top-1.5 text-[11px] font-medium text-[#8EB69B]'
+                            : 'top-3.5 text-sm text-[#FAF8F2]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-medium peer-focus:text-[#8EB69B]'
+                        }`}
+                      >
+                        UK Phone Number
+                      </label>
+                      {errors.phone && <p className="text-xs text-rose-300 mt-1 pl-1">{errors.phone}</p>}
                     </div>
                   </div>
 
@@ -202,7 +235,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
 
                   <button
                     type="submit"
-                    className="w-full py-4 px-6 rounded-xl bg-[#FAF8F2] text-[#051F20] hover:bg-[#DAF1DE] font-semibold text-[15px] transition-all shadow-[0_10px_25px_rgba(0,0,0,0.3)] cursor-pointer flex items-center justify-center gap-2 mt-4"
+                    className="w-full py-4 px-6 rounded-xl bg-[#FAF8F2] text-[#051F20] hover:bg-[#DAF1DE] font-semibold text-[15px] transition-all shadow-[0_10px_25px_rgba(0,0,0,0.3)] cursor-pointer flex items-center justify-center gap-2 mt-4 apple-spring-button btn-shimmer"
                   >
                     <span>Book a Call →</span>
                   </button>

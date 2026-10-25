@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Globe, Phone, ShieldCheck, ArrowUpRight, Lock } from 'lucide-react';
+import { Mail, Instagram, Phone, ShieldCheck, ArrowUpRight, Lock } from 'lucide-react';
 
 interface FooterProps {
   onOpenBooking: () => void;
@@ -21,11 +21,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
             <div>
               <div className="flex items-center gap-1 sm:gap-1.5 mb-5">
                 <img
-                  src="/logo-siren-trimmed.png"
+                  src="/logo-siren-new.png"
                   alt="Sirenexis"
                   className="h-11 sm:h-13 w-auto object-contain shrink-0"
                   onError={(e) => {
-                    e.currentTarget.src = 'https://i.postimg.cc/j2Cy6H0X/logo-siren-GREEN-2.png';
+                    e.currentTarget.src = 'https://i.postimg.cc/MHPc5Z5K/Artboard-1.png';
                   }}
                 />
                 <span
@@ -108,9 +108,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Globe className="w-4 h-4 text-[#235347] shrink-0" />
-                <a href="https://www.sirenexis.com" className="hover:text-[#051F20] underline-offset-2 hover:underline">
-                  www.sirenexis.com
+                <Instagram className="w-4 h-4 text-[#235347] shrink-0" />
+                <a
+                  href="https://www.instagram.com/sirenexis?rpxt=MTU1bGNjenAzYzlqZw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#051F20] underline-offset-2 hover:underline"
+                >
+                  @sirenexis
                 </a>
               </li>
               <li className="flex items-center gap-2.5">

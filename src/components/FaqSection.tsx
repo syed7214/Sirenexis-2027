@@ -56,8 +56,10 @@ export const FaqSection: React.FC = () => {
             return (
               <ScrollReveal key={faq.q} delay={index * 80} direction="up">
                 <div
-                  className={`bg-[#FAF8F2] border rounded-2xl overflow-hidden transition-all duration-300 shadow-sm ${
-                    isOpen ? 'border-[#235347] shadow-md bg-white/80' : 'border-[#163832]/15 hover:border-[#163832]/35'
+                  className={`rounded-2xl overflow-hidden transition-all duration-300 ${
+                    isOpen
+                      ? 'liquid-glass border border-[#235347]/50 shadow-[0_12px_32px_rgba(5,31,32,0.08)]'
+                      : 'liquid-glass border border-white/70 shadow-xs hover:border-[#163832]/30'
                   }`}
                 >
                   <button

@@ -72,8 +72,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#051F20]/70 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[28px] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#051F20]/75 backdrop-blur-md transition-opacity duration-300">
+      <div className="relative w-full max-w-2xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[28px] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col apple-sheet-animate">
         
         {/* Top Header */}
         <div className="p-6 sm:p-7 border-b border-[#163832]/10 flex items-center justify-between bg-[#F4F0E6]/60">
@@ -103,62 +103,94 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
             <form onSubmit={handleSubmit} className="space-y-5">
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#051F20] mb-1.5">
-                    Your Full Name *
-                  </label>
+                <div className="relative">
                   <input
+                    id="booking-fullName"
                     type="text"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    placeholder="e.g. Rachel Thorne"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] placeholder-[#163832]/40 text-sm focus:outline-none focus:border-[#235347]"
+                    placeholder=" "
+                    className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-white/95 border border-[#163832]/20 text-[#051F20] text-sm focus:outline-none focus:border-[#235347] focus:ring-2 focus:ring-[#235347]/15 transition-all placeholder-transparent"
                   />
-                  {errors.fullName && <p className="text-xs text-rose-600 mt-1">{errors.fullName}</p>}
+                  <label
+                    htmlFor="booking-fullName"
+                    className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                      formData.fullName
+                        ? 'top-1.5 text-[11px] font-semibold text-[#235347]'
+                        : 'top-3.5 text-sm text-[#163832]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                    }`}
+                  >
+                    Your Full Name *
+                  </label>
+                  {errors.fullName && <p className="text-xs text-rose-600 mt-1 pl-1">{errors.fullName}</p>}
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-[#051F20] mb-1.5">
-                    Business Email *
-                  </label>
+                <div className="relative">
                   <input
+                    id="booking-businessEmail"
                     type="email"
                     value={formData.businessEmail}
                     onChange={(e) => setFormData({ ...formData, businessEmail: e.target.value })}
-                    placeholder="rachel@company.co.uk"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] placeholder-[#163832]/40 text-sm focus:outline-none focus:border-[#235347]"
+                    placeholder=" "
+                    className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-white/95 border border-[#163832]/20 text-[#051F20] text-sm focus:outline-none focus:border-[#235347] focus:ring-2 focus:ring-[#235347]/15 transition-all placeholder-transparent"
                   />
-                  {errors.businessEmail && <p className="text-xs text-rose-600 mt-1">{errors.businessEmail}</p>}
+                  <label
+                    htmlFor="booking-businessEmail"
+                    className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                      formData.businessEmail
+                        ? 'top-1.5 text-[11px] font-semibold text-[#235347]'
+                        : 'top-3.5 text-sm text-[#163832]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                    }`}
+                  >
+                    Business Email *
+                  </label>
+                  {errors.businessEmail && <p className="text-xs text-rose-600 mt-1 pl-1">{errors.businessEmail}</p>}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#051F20] mb-1.5">
-                    Company Name *
-                  </label>
+                <div className="relative">
                   <input
+                    id="booking-companyName"
                     type="text"
                     value={formData.companyName}
                     onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                    placeholder="e.g. Kestrel Group Ltd"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] placeholder-[#163832]/40 text-sm focus:outline-none focus:border-[#235347]"
+                    placeholder=" "
+                    className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-white/95 border border-[#163832]/20 text-[#051F20] text-sm focus:outline-none focus:border-[#235347] focus:ring-2 focus:ring-[#235347]/15 transition-all placeholder-transparent"
                   />
-                  {errors.companyName && <p className="text-xs text-rose-600 mt-1">{errors.companyName}</p>}
+                  <label
+                    htmlFor="booking-companyName"
+                    className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                      formData.companyName
+                        ? 'top-1.5 text-[11px] font-semibold text-[#235347]'
+                        : 'top-3.5 text-sm text-[#163832]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                    }`}
+                  >
+                    Company Name *
+                  </label>
+                  {errors.companyName && <p className="text-xs text-rose-600 mt-1 pl-1">{errors.companyName}</p>}
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-[#051F20] mb-1.5">
-                    UK Phone Number *
-                  </label>
+                <div className="relative">
                   <input
+                    id="booking-phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+44 20 8123 4567"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] placeholder-[#163832]/40 text-sm focus:outline-none focus:border-[#235347]"
+                    placeholder=" "
+                    className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-white/95 border border-[#163832]/20 text-[#051F20] text-sm focus:outline-none focus:border-[#235347] focus:ring-2 focus:ring-[#235347]/15 transition-all placeholder-transparent"
                   />
-                  {errors.phone && <p className="text-xs text-rose-600 mt-1">{errors.phone}</p>}
+                  <label
+                    htmlFor="booking-phone"
+                    className={`pointer-events-none absolute left-4 transition-all duration-200 ease-out origin-left ${
+                      formData.phone
+                        ? 'top-1.5 text-[11px] font-semibold text-[#235347]'
+                        : 'top-3.5 text-sm text-[#163832]/60 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                    }`}
+                  >
+                    UK Phone Number *
+                  </label>
+                  {errors.phone && <p className="text-xs text-rose-600 mt-1 pl-1">{errors.phone}</p>}
                 </div>
               </div>
 
@@ -220,7 +252,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
 
               <button
                 type="submit"
-                className="w-full py-4 px-6 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] font-medium text-sm transition-all shadow-[0_8px_20px_rgba(5,31,32,0.18)] cursor-pointer flex items-center justify-center gap-2"
+                className="w-full py-4 px-6 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] font-medium text-sm transition-all shadow-[0_8px_20px_rgba(5,31,32,0.18)] cursor-pointer flex items-center justify-center gap-2 apple-spring-button btn-shimmer"
               >
                 <span>Confirm Booking</span>
                 <ArrowRight className="w-4 h-4 text-[#8EB69B]" />
@@ -239,7 +271,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
               </p>
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-xl bg-[#051F20] text-[#FAF8F2] text-sm font-medium hover:bg-[#0B2B26] transition-colors"
+                className="px-6 py-2.5 rounded-xl bg-[#051F20] text-[#FAF8F2] text-sm font-medium hover:bg-[#0B2B26] transition-colors apple-spring-button"
               >
                 Return to Site
               </button>

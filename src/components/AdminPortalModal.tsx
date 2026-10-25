@@ -218,10 +218,10 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
   const countBooked = queries.filter((q) => q.status === 'Booked').length;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#051F20]/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#051F20]/80 backdrop-blur-md transition-opacity duration-300">
       
       {/* Container */}
-      <div className="relative w-full max-w-5xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[28px] shadow-[0_25px_60px_rgba(5,31,32,0.4)] overflow-hidden max-h-[92vh] flex flex-col">
+      <div className="relative w-full max-w-5xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[28px] shadow-[0_25px_60px_rgba(5,31,32,0.4)] overflow-hidden max-h-[92vh] flex flex-col apple-sheet-animate">
         
         {/* ===================== VIEW 1: PASSCODE LOCK SCREEN ===================== */}
         {!isAuthenticated ? (
@@ -837,60 +837,100 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
             </div>
 
             <form onSubmit={handleAddManualSubmit} className="space-y-3 text-xs">
-              <div>
-                <label className="block font-semibold text-[#051F20] mb-1">Full Name *</label>
+              <div className="relative">
                 <input
+                  id="admin-fullName"
                   type="text"
                   required
                   value={newManualQuery.fullName}
                   onChange={(e) =>
                     setNewManualQuery({ ...newManualQuery, fullName: e.target.value })
                   }
-                  placeholder="e.g. Jonathan Burke"
-                  className="w-full px-3 py-2 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] focus:outline-none focus:border-[#235347]"
+                  placeholder=" "
+                  className="peer w-full px-3 pt-4 pb-1.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] text-xs focus:outline-none focus:border-[#235347] focus:ring-1 focus:ring-[#235347]/20 transition-all placeholder-transparent"
                 />
+                <label
+                  htmlFor="admin-fullName"
+                  className={`pointer-events-none absolute left-3 transition-all duration-200 ease-out origin-left ${
+                    newManualQuery.fullName
+                      ? 'top-1 text-[10px] font-semibold text-[#235347]'
+                      : 'top-2.5 text-xs text-[#163832]/50 peer-focus:top-1 peer-focus:text-[10px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                  }`}
+                >
+                  Full Name *
+                </label>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block font-semibold text-[#051F20] mb-1">Company Name *</label>
+                <div className="relative">
                   <input
+                    id="admin-companyName"
                     type="text"
                     required
                     value={newManualQuery.companyName}
                     onChange={(e) =>
                       setNewManualQuery({ ...newManualQuery, companyName: e.target.value })
                     }
-                    placeholder="e.g. Cotswold FinTech"
-                    className="w-full px-3 py-2 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] focus:outline-none focus:border-[#235347]"
+                    placeholder=" "
+                    className="peer w-full px-3 pt-4 pb-1.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] text-xs focus:outline-none focus:border-[#235347] focus:ring-1 focus:ring-[#235347]/20 transition-all placeholder-transparent"
                   />
+                  <label
+                    htmlFor="admin-companyName"
+                    className={`pointer-events-none absolute left-3 transition-all duration-200 ease-out origin-left ${
+                      newManualQuery.companyName
+                        ? 'top-1 text-[10px] font-semibold text-[#235347]'
+                        : 'top-2.5 text-xs text-[#163832]/50 peer-focus:top-1 peer-focus:text-[10px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                    }`}
+                  >
+                    Company Name *
+                  </label>
                 </div>
-                <div>
-                  <label className="block font-semibold text-[#051F20] mb-1">Business Email *</label>
+                <div className="relative">
                   <input
+                    id="admin-businessEmail"
                     type="email"
                     required
                     value={newManualQuery.businessEmail}
                     onChange={(e) =>
                       setNewManualQuery({ ...newManualQuery, businessEmail: e.target.value })
                     }
-                    placeholder="jonathan@cotswold.co.uk"
-                    className="w-full px-3 py-2 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] focus:outline-none focus:border-[#235347]"
+                    placeholder=" "
+                    className="peer w-full px-3 pt-4 pb-1.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] text-xs focus:outline-none focus:border-[#235347] focus:ring-1 focus:ring-[#235347]/20 transition-all placeholder-transparent"
                   />
+                  <label
+                    htmlFor="admin-businessEmail"
+                    className={`pointer-events-none absolute left-3 transition-all duration-200 ease-out origin-left ${
+                      newManualQuery.businessEmail
+                        ? 'top-1 text-[10px] font-semibold text-[#235347]'
+                        : 'top-2.5 text-xs text-[#163832]/50 peer-focus:top-1 peer-focus:text-[10px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                    }`}
+                  >
+                    Business Email *
+                  </label>
                 </div>
               </div>
 
-              <div>
-                <label className="block font-semibold text-[#051F20] mb-1">UK Phone Number</label>
+              <div className="relative">
                 <input
+                  id="admin-phone"
                   type="tel"
                   value={newManualQuery.phone}
                   onChange={(e) =>
                     setNewManualQuery({ ...newManualQuery, phone: e.target.value })
                   }
-                  placeholder="+44 20 7123 4567"
-                  className="w-full px-3 py-2 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] focus:outline-none focus:border-[#235347]"
+                  placeholder=" "
+                  className="peer w-full px-3 pt-4 pb-1.5 rounded-xl bg-white border border-[#163832]/20 text-[#051F20] text-xs focus:outline-none focus:border-[#235347] focus:ring-1 focus:ring-[#235347]/20 transition-all placeholder-transparent"
                 />
+                <label
+                  htmlFor="admin-phone"
+                  className={`pointer-events-none absolute left-3 transition-all duration-200 ease-out origin-left ${
+                    newManualQuery.phone
+                      ? 'top-1 text-[10px] font-semibold text-[#235347]'
+                      : 'top-2.5 text-xs text-[#163832]/50 peer-focus:top-1 peer-focus:text-[10px] peer-focus:font-semibold peer-focus:text-[#235347]'
+                  }`}
+                >
+                  UK Phone Number
+                </label>
               </div>
 
               <div>

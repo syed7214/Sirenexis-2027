@@ -15,7 +15,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
         <ScrollReveal direction="up">
           <div className="max-w-3xl mb-16 sm:mb-24">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347]">
+              <span className="text-[12px] font-semibold uppercase tracking-[0.18em] apple-badge-shimmer">
                 What We Cover
               </span>
             </div>

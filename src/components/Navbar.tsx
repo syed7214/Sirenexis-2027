@@ -27,36 +27,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   return (
     <>
-      <header
-        className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 max-w-6xl mx-auto`}
-      >
+      <header className="fixed top-3 sm:top-4 left-0 right-0 z-50 px-4 sm:px-6 max-w-6xl mx-auto w-full">
         <div
-          className={`w-full rounded-full transition-all duration-300 px-5 sm:px-7 py-3 flex items-center justify-between gap-6 ${
+          className={`w-full rounded-full transition-all duration-300 flex items-center justify-between gap-4 lg:gap-8 px-5 sm:px-7 py-3 ${
             scrolled
-              ? 'liquid-glass shadow-[0_16px_36px_rgba(5,31,32,0.12)] border border-white/70'
-              : 'liquid-glass shadow-[0_10px_30px_rgba(5,31,32,0.06)] border border-white/50'
+              ? 'liquid-glass shadow-[0_18px_40px_rgba(5,31,32,0.12)] border border-white/80 backdrop-blur-2xl'
+              : 'liquid-glass shadow-[0_10px_30px_rgba(5,31,32,0.06)] border border-white/60'
           }`}
         >
           {/* Brand Zone */}
           <a
             href="#"
-            className="flex items-center gap-1 sm:gap-1.5 text-[#051F20] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#235347] rounded-lg group"
+            className="flex items-center gap-1.5 sm:gap-2 text-[#051F20] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#235347] rounded-lg group transition-transform active:scale-[0.98] shrink-0"
           >
             <img
-              src="/logo-siren-trimmed.png"
+              src="/logo-siren-new.png"
               alt="Sirenexis"
-              className="h-10 sm:h-11 md:h-12 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform"
+              className="h-10 sm:h-11 md:h-12 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
               onError={(e) => {
-                e.currentTarget.src = 'https://i.postimg.cc/j2Cy6H0X/logo-siren-GREEN-2.png';
+                e.currentTarget.src = 'https://i.postimg.cc/MHPc5Z5K/Artboard-1.png';
               }}
             />
             <span
-              className="font-bold tracking-tight text-xl sm:text-2xl text-[#0B2B26]"
+              className="font-bold tracking-tight text-xl sm:text-2xl text-[#0B2B26] shrink-0"
               style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'SF Pro', system-ui, sans-serif" }}
             >
               SIRENEXIS
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[#235347] bg-[#DAF1DE]/70 px-2.5 py-0.5 rounded-full border border-[#8EB69B]/40">
+            <span className="hidden lg:inline-flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[#235347] bg-[#DAF1DE]/70 px-2.5 py-0.5 rounded-full border border-[#8EB69B]/40 transition-transform group-hover:scale-105 shrink-0">
               <svg className="w-4 h-2.5 rounded-[2px] overflow-hidden shrink-0 shadow-[0_0_1px_rgba(0,0,0,0.3)]" viewBox="0 0 60 30" aria-label="UK Flag">
                 <rect width="60" height="30" fill="#012169"/>
                 <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
@@ -68,13 +66,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             </span>
           </a>
 
-          {/* Nav Links: Clean typography */}
-          <nav className="hidden md:flex items-center gap-7 text-[14.5px] font-medium text-[#163832]">
+          {/* Nav Links: Frosted pill hover */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 text-[14.5px] font-medium text-[#163832] shrink-0">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="hover:text-[#051F20] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#235347] hover:after:w-full after:transition-all after:duration-250 whitespace-nowrap"
+                className="px-3.5 py-1.5 rounded-full text-[#163832] hover:text-[#051F20] hover:bg-[#163832]/6 transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap active:scale-[0.96]"
               >
                 {link.name}
               </a>
@@ -82,13 +80,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </nav>
 
           {/* Primary Action Button */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={onOpenBooking}
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[14px] font-medium text-[#FAF8F2] bg-[#051F20] rounded-xl hover:bg-[#0B2B26] hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.98] whitespace-nowrap"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[14px] font-medium text-[#FAF8F2] bg-[#051F20] rounded-xl hover:bg-[#0B2B26] hover:shadow-lg transition-all duration-250 cursor-pointer apple-spring-button whitespace-nowrap group"
             >
               <span>Book a Call</span>
-              <ArrowRight className="w-4 h-4 text-[#8EB69B]" />
+              <ArrowRight className="w-4 h-4 text-[#8EB69B] group-hover:translate-x-0.5 transition-transform duration-200" />
             </button>
 
             {/* Mobile Hamburger */}
