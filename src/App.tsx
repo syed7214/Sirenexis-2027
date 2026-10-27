@@ -42,14 +42,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F2] text-[#051F20] font-sans flex flex-col selection:bg-[#DAF1DE] selection:text-[#051F20]">
+    <div className="min-h-screen w-full overflow-x-hidden relative bg-[#FAF8F2] text-[#051F20] font-sans flex flex-col selection:bg-[#DAF1DE] selection:text-[#051F20]">
       {/* 0. Thin Fixed Scroll Progress Indicator */}
       <ScrollProgressBar />
 
       {/* 1. Floating Centered Pill Navigation */}
       <Navbar onOpenBooking={() => handleOpenBooking()} />
 
-      <main className="flex-grow">
+      <main className="flex-grow w-full overflow-x-hidden">
         {/* 2. Large Editorial Hero with 2-Column Asymmetrical Layout */}
         <Hero
           onOpenBooking={() => handleOpenBooking()}

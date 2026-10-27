@@ -72,11 +72,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#051F20]/75 backdrop-blur-md transition-opacity duration-300">
-      <div className="relative w-full max-w-2xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[28px] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col apple-sheet-animate">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#051F20]/75 backdrop-blur-md transition-opacity duration-300">
+      <div className="relative w-full max-w-2xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[24px] sm:rounded-[28px] shadow-2xl overflow-hidden max-h-[90dvh] flex flex-col apple-sheet-animate">
         
         {/* Top Header */}
-        <div className="p-6 sm:p-7 border-b border-[#163832]/10 flex items-center justify-between bg-[#F4F0E6]/60">
+        <div className="p-5 sm:p-7 border-b border-[#163832]/10 flex items-center justify-between bg-[#F4F0E6]/60 shrink-0">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#235347] bg-[#DAF1DE] px-2.5 py-0.5 rounded-full border border-[#8EB69B]/40">
               Direct Briefing
@@ -90,7 +90,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-[#051F20] hover:bg-black/5 rounded-full transition-colors cursor-pointer"
+            className="p-2 text-[#051F20] hover:bg-black/5 rounded-full transition-colors cursor-pointer shrink-0"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -98,7 +98,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8 overflow-y-auto">
+        <div className="p-5 sm:p-8 overflow-y-auto">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-5">
               

@@ -34,20 +34,20 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
   ];
 
   return (
-    <section id="how-it-works" className="py-24 sm:py-32 bg-[#F4F0E6]/50 border-y border-[#163832]/10 relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <section id="how-it-works" className="py-16 sm:py-24 lg:py-32 bg-[#F4F0E6]/50 border-y border-[#163832]/10 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
+        <div className="max-w-3xl mb-12 sm:mb-20">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347]">
               How It Works
             </span>
           </div>
-          <h2 className="font-serif text-[40px] sm:text-[54px] leading-[1.1] font-medium text-[#051F20] mb-4 text-balance">
+          <h2 className="font-serif text-[34px] sm:text-[54px] leading-[1.1] font-medium text-[#051F20] mb-4 text-balance">
             Predictable onboarding. Total visibility.
           </h2>
-          <p className="text-[17px] text-[#163832]/85">
+          <p className="text-[16px] sm:text-[17px] text-[#163832]/85">
             Every step is managed onshore with strict UK contractual protections and daily quality audits.
           </p>
         </div>
@@ -58,11 +58,11 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
           {/* Desktop Connecting Line */}
           <div className="hidden lg:block absolute top-[52px] left-[6%] right-[6%] h-[1.5px] bg-[#8EB69B]/50 z-0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
             {steps.map((step, idx) => (
               <div
                 key={step.num}
-                className="liquid-glass border border-white/80 rounded-[24px] p-7 sm:p-8 flex flex-col justify-between shadow-[0_12px_32px_rgba(5,31,32,0.06)] hover:shadow-[0_20px_45px_rgba(5,31,32,0.12)] card-lift transition-all duration-300 group"
+                className="liquid-glass border border-white/80 rounded-[24px] p-6 sm:p-8 flex flex-col justify-between shadow-[0_12px_32px_rgba(5,31,32,0.06)] hover:shadow-[0_20px_45px_rgba(5,31,32,0.12)] card-lift transition-all duration-300 group"
               >
                 <div>
                   {/* Step Num & Indicator */}
@@ -100,23 +100,23 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
         </div>
 
         {/* Action strip */}
-        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between p-6 sm:p-8 liquid-glass rounded-2xl gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#DAF1DE] flex items-center justify-center text-[#051F20]">
+        <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-stretch sm:items-center justify-between p-5 sm:p-8 liquid-glass rounded-2xl gap-4">
+          <div className="flex items-start sm:items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#DAF1DE] flex items-center justify-center text-[#051F20] shrink-0">
               <ShieldCheck className="w-5 h-5 text-[#235347]" />
             </div>
             <div>
               <p className="font-medium text-[#051F20] text-sm">
                 Want to see the actual training syllabus and QA rubric?
               </p>
-              <p className="text-xs text-[#163832]/75">
+              <p className="text-xs text-[#163832]/75 mt-0.5">
                 We share our full 14-day onboarding timeline and SOP intake template on our call.
               </p>
             </div>
           </div>
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-medium transition-all shadow shrink-0 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-medium transition-all shadow shrink-0 cursor-pointer w-full sm:w-auto"
           >
             <span>Book Intake Call</span>
             <ArrowRight className="w-4 h-4 text-[#8EB69B]" />

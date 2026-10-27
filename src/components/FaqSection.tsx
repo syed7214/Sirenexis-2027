@@ -29,28 +29,28 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 sm:py-32 bg-[#FAF8F2] relative">
-      <div className="max-w-4xl mx-auto px-5 sm:px-8">
+    <section className="py-16 sm:py-24 lg:py-32 bg-[#FAF8F2] relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-8">
         
         {/* Header */}
         <ScrollReveal direction="up">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347]">
                 Common Questions
               </span>
             </div>
-            <h2 className="font-serif text-[40px] sm:text-[52px] leading-[1.1] font-medium text-[#051F20] mb-3">
+            <h2 className="font-serif text-[34px] sm:text-[52px] leading-[1.1] font-medium text-[#051F20] mb-3">
               Frequently Asked Questions
             </h2>
-            <p className="text-[17px] text-[#163832]/85">
+            <p className="text-[16px] sm:text-[17px] text-[#163832]/85">
               Transparent answers on our UK-managed dedicated support model.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Accordion list */}
-        <div className="space-y-4">
+        <div className="space-y-3.5 sm:space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -64,10 +64,10 @@ export const FaqSection: React.FC = () => {
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="w-full text-left p-6 sm:p-7 flex items-center justify-between gap-4 cursor-pointer focus:outline-none group"
+                    className="w-full text-left p-5 sm:p-7 flex items-center justify-between gap-4 cursor-pointer focus:outline-none group"
                     aria-expanded={isOpen}
                   >
-                    <span className="font-serif text-xl sm:text-2xl font-medium text-[#051F20] group-hover:text-[#235347] transition-colors">
+                    <span className="font-serif text-lg sm:text-2xl font-medium text-[#051F20] group-hover:text-[#235347] transition-colors">
                       {faq.q}
                     </span>
                     <div
@@ -82,7 +82,7 @@ export const FaqSection: React.FC = () => {
                   {/* Smooth Animated Accordion Grid */}
                   <div className={`smooth-accordion-grid ${isOpen ? 'is-open' : ''}`}>
                     <div className="smooth-accordion-inner">
-                      <div className="px-6 pb-6 sm:px-7 sm:pb-7 text-[#163832]/90 text-[16px] leading-[1.65] border-t border-[#163832]/10 pt-4">
+                      <div className="px-5 pb-5 sm:px-7 sm:pb-7 text-[#163832]/90 text-[15px] sm:text-[16px] leading-[1.65] border-t border-[#163832]/10 pt-4">
                         <p>{faq.a}</p>
                       </div>
                     </div>

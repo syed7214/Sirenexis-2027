@@ -27,9 +27,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   return (
     <>
-      <header className="fixed top-3 sm:top-4 left-0 right-0 z-50 px-4 sm:px-6 max-w-6xl mx-auto w-full">
+      <header className="fixed top-2.5 sm:top-4 left-0 right-0 z-50 px-3 sm:px-6 max-w-6xl mx-auto w-full">
         <div
-          className={`w-full rounded-full transition-all duration-300 flex items-center justify-between gap-4 lg:gap-8 px-5 sm:px-7 py-3 ${
+          className={`w-full rounded-full transition-all duration-300 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 px-4 sm:px-7 py-2.5 sm:py-3 ${
             scrolled
               ? 'liquid-glass shadow-[0_18px_40px_rgba(5,31,32,0.12)] border border-white/80 backdrop-blur-2xl'
               : 'liquid-glass shadow-[0_10px_30px_rgba(5,31,32,0.06)] border border-white/60'
@@ -38,18 +38,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           {/* Brand Zone */}
           <a
             href="#"
-            className="flex items-center gap-1.5 sm:gap-2 text-[#051F20] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#235347] rounded-lg group transition-transform active:scale-[0.98] shrink-0"
+            className="flex items-center gap-1.5 sm:gap-2 text-[#051F20] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#235347] rounded-lg group transition-transform active:scale-[0.98] shrink-0 min-w-0"
           >
             <img
               src="/logo-siren-new.png"
               alt="Sirenexis"
-              className="h-10 sm:h-11 md:h-12 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="h-8 sm:h-11 md:h-12 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
               onError={(e) => {
                 e.currentTarget.src = 'https://i.postimg.cc/MHPc5Z5K/Artboard-1.png';
               }}
             />
             <span
-              className="font-bold tracking-tight text-xl sm:text-2xl text-[#0B2B26] shrink-0"
+              className="font-bold tracking-tight text-lg sm:text-2xl text-[#0B2B26] shrink-0"
               style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'SF Pro', system-ui, sans-serif" }}
             >
               SIRENEXIS
@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </nav>
 
           {/* Primary Action Button */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               onClick={onOpenBooking}
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[14px] font-medium text-[#FAF8F2] bg-[#051F20] rounded-xl hover:bg-[#0B2B26] hover:shadow-lg transition-all duration-250 cursor-pointer apple-spring-button whitespace-nowrap group"
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-[#051F20] rounded-lg hover:bg-black/5 transition-colors"
+              className="md:hidden p-2 text-[#051F20] rounded-lg hover:bg-black/5 transition-colors cursor-pointer"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -103,14 +103,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-2 liquid-glass rounded-2xl p-5 shadow-2xl border border-white/80 animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="flex flex-col gap-3">
+          <div className="md:hidden mt-2 liquid-glass rounded-2xl p-4 sm:p-5 shadow-2xl border border-white/80 max-h-[calc(100dvh-5rem)] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-base font-medium text-[#163832] hover:text-[#051F20] hover:bg-[#DAF1DE]/40 rounded-lg transition-colors"
+                  className="px-3 py-2.5 text-base font-medium text-[#163832] hover:text-[#051F20] hover:bg-[#DAF1DE]/40 rounded-lg transition-colors"
                 >
                   {link.name}
                 </a>
@@ -127,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                   <ArrowRight className="w-4 h-4 text-[#8EB69B]" />
                 </button>
                 <div className="flex items-center justify-center gap-1.5 text-xs text-[#235347] py-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#235347]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#235347] shrink-0" />
                   <span>English Law Contract • UK Bank</span>
                 </div>
               </div>

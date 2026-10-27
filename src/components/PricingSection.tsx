@@ -10,34 +10,34 @@ interface PricingSectionProps {
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking, onOpenCalculator }) => {
   return (
-    <section id="pricing" className="py-24 sm:py-32 bg-[#FAF8F2] relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <section id="pricing" className="py-16 sm:py-24 lg:py-32 bg-[#FAF8F2] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Header */}
         <ScrollReveal direction="up">
-          <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-20">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-[12px] font-semibold uppercase tracking-[0.18em] apple-badge-shimmer">
                 Investment & Plans
               </span>
             </div>
-            <h2 className="font-serif text-[42px] sm:text-[56px] leading-[1.08] font-medium text-[#051F20] mb-3">
+            <h2 className="font-serif text-[36px] sm:text-[56px] leading-[1.08] font-medium text-[#051F20] mb-3">
               Simple monthly pricing
             </h2>
-            <p className="text-[18px] text-[#163832]/85">
+            <p className="text-[16px] sm:text-[18px] text-[#163832]/85">
               One dedicated agent. No hourly billing.
             </p>
           </div>
         </ScrollReveal>
 
         {/* 3-Tier Grid with Liquid Glass */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 sm:gap-8 items-stretch mb-12">
           
           {/* Plan 1: PART-TIME DEDICATED */}
           <ScrollReveal delay={0} direction="up" className="flex">
-            <SpotlightCard className="w-full liquid-glass p-8 sm:p-9 rounded-[28px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_24px_50px_rgba(5,31,32,0.12)] flex flex-col justify-between">
+            <SpotlightCard className="w-full liquid-glass p-6 sm:p-9 rounded-[26px] sm:rounded-[28px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_24px_50px_rgba(5,31,32,0.12)] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#235347] bg-[#DAF1DE]/70 px-3 py-1 rounded-md border border-[#8EB69B]/40">
                     PART-TIME DEDICATED
                   </span>
@@ -94,21 +94,21 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking, o
         </ScrollReveal>
 
         {/* Plan 2: FULL-TIME DEDICATED (FEATURED - ELEVATED) */}
-        <ScrollReveal delay={120} direction="up" className="flex">
-          <SpotlightCard className="w-full liquid-glass-mint border-2 border-[#8EB69B] rounded-[30px] p-8 sm:p-9 flex flex-col justify-between shadow-[0_24px_50px_rgba(5,31,32,0.12)] hover:shadow-[0_30px_60px_rgba(5,31,32,0.18)] relative lg:-translate-y-4">
+        <ScrollReveal delay={120} direction="up" className="flex mt-2 lg:mt-0">
+          <SpotlightCard className="w-full liquid-glass-mint border-2 border-[#8EB69B] rounded-[26px] sm:rounded-[30px] p-6 sm:p-9 flex flex-col justify-between shadow-[0_24px_50px_rgba(5,31,32,0.12)] hover:shadow-[0_30px_60px_rgba(5,31,32,0.18)] relative lg:-translate-y-2">
             
             {/* Elevated Badge */}
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#051F20] text-[#FAF8F2] text-[11px] font-bold uppercase tracking-[0.16em] px-4 py-1 rounded-full shadow-md">
+            <div className="absolute top-3.5 sm:top-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#051F20] text-[#FAF8F2] text-[11px] font-bold uppercase tracking-[0.16em] px-4 py-1 rounded-full shadow-md z-10">
               MOST POPULAR
             </div>
 
-            <div>
-              <div className="flex items-center justify-between mb-4 mt-2">
+            <div className="pt-6 sm:pt-5">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4 mt-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#0B2B26] bg-[#DAF1DE] px-3 py-1 rounded-md border border-[#8EB69B]/40">
                   FULL-TIME DEDICATED
                 </span>
                 <span className="text-xs text-[#235347] font-semibold flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" /> Complete Coverage
+                  <Sparkles className="w-3.5 h-3.5 shrink-0" /> Complete Coverage
                 </span>
               </div>
 
@@ -168,9 +168,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking, o
 
         {/* Plan 3: 2-WEEK PAID PILOT */}
         <ScrollReveal delay={240} direction="up" className="flex">
-          <SpotlightCard className="w-full liquid-glass p-8 sm:p-9 rounded-[28px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_24px_50px_rgba(5,31,32,0.12)] flex flex-col justify-between">
+          <SpotlightCard className="w-full liquid-glass p-6 sm:p-9 rounded-[26px] sm:rounded-[28px] border border-white/80 shadow-[0_16px_40px_rgba(5,31,32,0.06)] hover:shadow-[0_24px_50px_rgba(5,31,32,0.12)] flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#235347] bg-[#DAF1DE]/70 px-3 py-1 rounded-md border border-[#8EB69B]/40">
                   2-WEEK PAID PILOT
                 </span>

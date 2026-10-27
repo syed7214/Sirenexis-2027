@@ -38,32 +38,32 @@ export const PilotSection: React.FC<PilotSectionProps> = ({ onOpenBooking }) => 
   ];
 
   return (
-    <section id="pilot" className="py-24 sm:py-32 bg-[#FAF8F2] relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <section id="pilot" className="py-16 sm:py-24 lg:py-32 bg-[#FAF8F2] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Container with signature liquid glass & botanical accents */}
-        <div className="liquid-glass p-8 sm:p-14 rounded-[32px] border border-white/90 shadow-[0_24px_60px_rgba(5,31,32,0.08)] relative overflow-hidden">
+        <div className="liquid-glass p-5 sm:p-10 lg:p-14 rounded-[26px] sm:rounded-[32px] border border-white/90 shadow-[0_24px_60px_rgba(5,31,32,0.08)] relative overflow-hidden">
           
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-3xl mb-10 sm:mb-14">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#235347] bg-[#DAF1DE] px-3 py-1 rounded-full border border-[#8EB69B]/40">
+              <span className="text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-[#235347] bg-[#DAF1DE] px-3 py-1 rounded-full border border-[#8EB69B]/40">
                 <span className="apple-badge-shimmer">Risk-Free Evaluation</span>
               </span>
             </div>
-            <h2 className="font-serif text-[38px] sm:text-[52px] leading-[1.12] font-medium text-[#051F20] mb-4 text-balance">
+            <h2 className="font-serif text-[32px] sm:text-[52px] leading-[1.12] font-medium text-[#051F20] mb-4 text-balance">
               Start with a 2-week paid pilot. Zero risk.
             </h2>
-            <p className="text-[17px] leading-[1.65] text-[#163832]/85">
+            <p className="text-[15.5px] sm:text-[17px] leading-[1.65] text-[#163832]/85">
               Experience the quality of a dedicated British-managed specialist inside your actual helpdesk before committing to an ongoing contract.
             </p>
           </div>
 
           {/* Timeline Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-12 relative">
             {timelineSteps.map((step, idx) => (
               <div
                 key={step.phase}
-                className="bg-[#FAF8F2] border border-[#163832]/15 rounded-[22px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_6px_20px_rgba(5,31,32,0.03)] hover:shadow-[0_12px_28px_rgba(5,31,32,0.08)] card-lift apple-spotlight transition-all"
+                className="bg-[#FAF8F2] border border-[#163832]/15 rounded-[20px] sm:rounded-[22px] p-5 sm:p-7 flex flex-col justify-between shadow-[0_6px_20px_rgba(5,31,32,0.03)] hover:shadow-[0_12px_28px_rgba(5,31,32,0.08)] card-lift apple-spotlight transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -93,10 +93,10 @@ export const PilotSection: React.FC<PilotSectionProps> = ({ onOpenBooking }) => 
           </div>
 
           {/* Guarantee Highlight Card */}
-          <div className="bg-[#DAF1DE]/60 border border-[#8EB69B]/50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#FAF8F2] flex items-center justify-center text-[#051F20] shadow-sm shrink-0 border border-[#8EB69B]/40">
-                <ShieldCheck className="w-6 h-6 text-[#235347]" />
+          <div className="bg-[#DAF1DE]/60 border border-[#8EB69B]/50 rounded-2xl p-5 sm:p-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6">
+            <div className="flex items-start gap-3.5 sm:gap-4">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FAF8F2] flex items-center justify-center text-[#051F20] shadow-sm shrink-0 border border-[#8EB69B]/40">
+                <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-[#235347]" />
               </div>
               <div>
                 <h4 className="font-serif text-xl sm:text-2xl font-medium text-[#051F20]">
@@ -110,7 +110,7 @@ export const PilotSection: React.FC<PilotSectionProps> = ({ onOpenBooking }) => 
 
             <button
               onClick={onOpenBooking}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-medium transition-all shadow shrink-0 cursor-pointer apple-spring-button btn-shimmer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] text-sm font-medium transition-all shadow shrink-0 cursor-pointer apple-spring-button btn-shimmer w-full md:w-auto"
             >
               <span>Book Pilot Intake Call</span>
               <ArrowRight className="w-4 h-4 text-[#8EB69B]" />

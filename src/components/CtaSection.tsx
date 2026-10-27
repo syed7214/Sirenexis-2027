@@ -55,41 +55,41 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
   };
 
   return (
-    <section id="book" className="py-24 sm:py-32 bg-[#051F20] text-[#FAF8F2] relative overflow-hidden">
+    <section id="book" className="py-16 sm:py-24 lg:py-32 bg-[#051F20] text-[#FAF8F2] relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#163832]/60 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[#0B2B26] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Exact Headline & Subtext */}
           <div className="lg:col-span-6">
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#8EB69B] bg-[#163832]/70 px-3 py-1 rounded-full border border-[#8EB69B]/30">
+              <span className="text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#8EB69B] bg-[#163832]/70 px-3 py-1 rounded-full border border-[#8EB69B]/30">
                 Direct UK Consultation
               </span>
             </div>
 
-            <h2 className="font-serif text-[42px] sm:text-[60px] lg:text-[68px] leading-[1.06] font-medium text-[#FAF8F2] text-balance mb-6">
+            <h2 className="font-serif text-[36px] sm:text-[60px] lg:text-[68px] leading-[1.08] sm:leading-[1.06] font-medium text-[#FAF8F2] text-balance mb-5 sm:mb-6">
               Ready to stop missing enquiries?
             </h2>
 
-            <p className="text-[18px] sm:text-[20px] leading-[1.6] text-[#FAF8F2]/85 max-w-xl mb-8">
+            <p className="text-[16.5px] sm:text-[20px] leading-[1.6] text-[#FAF8F2]/85 max-w-xl mb-7 sm:mb-8">
               Book a 15-minute call. We'll map your volume and show exact saving. No obligation.
             </p>
 
             <div className="space-y-4 pt-6 border-t border-[#8EB69B]/20 max-w-md">
-              <div className="flex items-center gap-3 text-sm text-[#DAF1DE]">
-                <ShieldCheck className="w-5 h-5 text-[#8EB69B] shrink-0" />
+              <div className="flex items-start sm:items-center gap-3 text-sm text-[#DAF1DE]">
+                <ShieldCheck className="w-5 h-5 text-[#8EB69B] shrink-0 mt-0.5 sm:mt-0" />
                 <span>Onshore UK entity • English Law MSA • UK Bank</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-[#DAF1DE]">
-                <Clock className="w-5 h-5 text-[#8EB69B] shrink-0" />
+              <div className="flex items-start sm:items-center gap-3 text-sm text-[#DAF1DE]">
+                <Clock className="w-5 h-5 text-[#8EB69B] shrink-0 mt-0.5 sm:mt-0" />
                 <span>15 minutes: enquiry audit + tailored team quote</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-[#DAF1DE]">
-                <CheckCircle2 className="w-5 h-5 text-[#8EB69B] shrink-0" />
+              <div className="flex items-start sm:items-center gap-3 text-sm text-[#DAF1DE]">
+                <CheckCircle2 className="w-5 h-5 text-[#8EB69B] shrink-0 mt-0.5 sm:mt-0" />
                 <span>We have trained agents with fluent English</span>
               </div>
             </div>
@@ -97,21 +97,20 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
 
           {/* Right Column: Direct Consultation Form Card */}
           <div className="lg:col-span-6">
-            <div className="liquid-glass-dark p-8 sm:p-10 rounded-[28px] border border-[#8EB69B]/30 shadow-[0_24px_50px_rgba(0,0,0,0.35)]">
+            <div className="liquid-glass-dark p-6 sm:p-10 rounded-[24px] sm:rounded-[28px] border border-[#8EB69B]/30 shadow-[0_24px_50px_rgba(0,0,0,0.35)]">
               
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-[#8EB69B]/20 mb-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#8EB69B]/20 mb-2">
                     <div>
-                      <h3 className="font-serif text-2xl text-[#FAF8F2]">Schedule Discovery Call</h3>
+                      <h3 className="font-serif text-xl sm:text-2xl text-[#FAF8F2]">Schedule Discovery Call</h3>
                       <p className="text-xs text-[#8EB69B]">With UK Operations</p>
                     </div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#051F20] bg-[#DAF1DE] px-2.5 py-1 rounded-md">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#051F20] bg-[#DAF1DE] px-2.5 py-1 rounded-md shrink-0">
                       Next-Day Slots
                     </span>
                   </div>
 
-                  {/* Name & Email */}
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="relative">

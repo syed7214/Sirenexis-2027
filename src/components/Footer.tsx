@@ -10,20 +10,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
   const [logoFailed, setLogoFailed] = useState(false);
 
   return (
-    <footer className="bg-[#FAF8F2] border-t border-[#163832]/12 pt-20 pb-12 relative text-[#051F20]">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <footer className="bg-[#FAF8F2] border-t border-[#163832]/12 pt-14 sm:pt-20 pb-10 sm:pb-12 relative text-[#051F20] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* 4-Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-[#163832]/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 pb-12 sm:pb-16 border-b border-[#163832]/10">
           
           {/* Column 1: Brand & UK Entity (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-1 sm:gap-1.5 mb-5">
+              <div className="flex items-center gap-1.5 mb-5">
                 <img
                   src="/logo-siren-new.png"
                   alt="Sirenexis"
-                  className="h-11 sm:h-13 w-auto object-contain shrink-0"
+                  className="h-10 sm:h-13 w-auto object-contain shrink-0"
                   onError={(e) => {
                     e.currentTarget.src = 'https://i.postimg.cc/MHPc5Z5K/Artboard-1.png';
                   }}
@@ -42,14 +42,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
             </div>
 
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#235347] bg-[#DAF1DE]/60 px-3 py-1.5 rounded-lg border border-[#8EB69B]/40 w-fit">
-              <ShieldCheck className="w-4 h-4 text-[#235347]" />
+              <ShieldCheck className="w-4 h-4 text-[#235347] shrink-0" />
               <span>English Law • UK Entity • UK Bank</span>
             </div>
           </div>
 
           {/* Column 2: Navigation Links (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-5">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-4 sm:mb-5">
               Navigation
             </h4>
             <ul className="space-y-3 text-[14.5px] text-[#163832]/85">
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
 
           {/* Column 3: Trust & Governance (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-5">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-4 sm:mb-5">
               Governance
             </h4>
             <ul className="space-y-3 text-[14px] text-[#163832]/85">
@@ -97,7 +97,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
 
           {/* Column 4: Contact & Consultation (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-5">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-4 sm:mb-5">
               Contact & UK Entity
             </h4>
             <ul className="space-y-3.5 text-[14px] text-[#163832]/90">
@@ -140,11 +140,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
         </div>
 
         {/* Small Bottom Strip */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#235347]/90 font-medium">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#235347]/90 font-medium text-center sm:text-left">
           <div>
             Sirenexis • UK Entity • UK Bank • English Law • © 2026
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
             <span>UK Companies House Registered</span>
             <span>All rights reserved</span>
             {/* Subtle discreet staff icon */}
