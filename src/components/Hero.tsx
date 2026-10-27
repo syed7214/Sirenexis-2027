@@ -51,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenPilot }) => {
   const ringRotation = (scrollY * 0.04).toFixed(2);
 
   return (
-    <section className="relative pt-24 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 md:pb-28 overflow-hidden bg-[#FAF8F2]">
+    <section id="hero" className="relative pt-24 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 md:pb-28 overflow-hidden bg-[#FAF8F2]">
       {/* 1. Deep Layer: Top-Right Luminous Emerald Orb (moves gently downward on scroll) */}
       <div
         className="absolute top-0 right-1/4 w-[620px] h-[620px] bg-gradient-to-br from-[#DAF1DE]/50 via-[#8EB69B]/25 to-transparent rounded-full blur-[140px] pointer-events-none will-change-transform"

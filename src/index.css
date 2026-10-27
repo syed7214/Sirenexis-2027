@@ -6,6 +6,10 @@
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 
+  html {
+    scroll-padding-top: 6rem;
+  }
+
   html,
   body,
   #root {

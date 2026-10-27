@@ -45,10 +45,10 @@ export function calculateSupportEconomics(
   
   // Base monthly UK wage
   const monthlyWage = ukBaseHourlyWage * hoursPerWeek * weeksPerMonth;
-  // Employer NI (13.8%) + Pension (3.0%) = 16.8%
-  const onCosts = monthlyWage * 0.168;
-  // IT workstation, software licenses & desk overhead
-  const infrastructureCost = isPartTime ? 200 : 350;
+  // Employer NI (15%) + Workplace Pension (3.0%) = 18.0%
+  const onCosts = monthlyWage * 0.18;
+  // IT workstation, full software seat licences, recruitment amortization & paid holiday/sick cover
+  const infrastructureCost = isPartTime ? 520 : 750;
   
   const ukInHouseMonthlyCost = Math.round(monthlyWage + onCosts + infrastructureCost);
   const monthlySavings = Math.max(0, ukInHouseMonthlyCost - sirenexisMonthlyCost);

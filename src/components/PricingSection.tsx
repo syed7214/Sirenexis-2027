@@ -4,7 +4,7 @@ import { ScrollReveal } from './ScrollReveal';
 import { SpotlightCard } from './SpotlightCard';
 
 interface PricingSectionProps {
-  onOpenBooking: () => void;
+  onOpenBooking: (plan?: string) => void;
   onOpenCalculator: () => void;
 }
 
@@ -84,7 +84,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking, o
             </div>
 
             <button
-              onClick={onOpenBooking}
+              onClick={() => onOpenBooking('Part-Time Dedicated (£1,495/mo)')}
               className="w-full py-3.5 px-6 rounded-xl border border-[#163832]/25 text-[#163832] font-medium text-sm hover:bg-[#DAF1DE]/40 transition-all cursor-pointer flex items-center justify-center gap-2 apple-spring-button btn-shimmer group"
             >
               <span>Book a Call</span>
@@ -157,7 +157,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking, o
             </div>
 
             <button
-              onClick={onOpenBooking}
+              onClick={() => onOpenBooking('Full-Time Dedicated (£2,495/mo)')}
               className="w-full py-4 px-6 rounded-xl bg-[#051F20] text-[#FAF8F2] hover:bg-[#0B2B26] font-medium text-sm transition-all shadow-[0_8px_20px_rgba(5,31,32,0.18)] cursor-pointer flex items-center justify-center gap-2 apple-spring-button btn-shimmer group"
             >
               <span>Book a Call</span>
@@ -220,7 +220,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking, o
             </div>
 
             <button
-              onClick={onOpenBooking}
+              onClick={() => onOpenBooking('2-Week Paid Pilot (£750)')}
               className="w-full py-3.5 px-6 rounded-xl border border-[#163832]/25 text-[#163832] font-medium text-sm hover:bg-[#DAF1DE]/40 transition-all cursor-pointer flex items-center justify-center gap-2 apple-spring-button btn-shimmer group"
             >
               <span>Start 2-Week Pilot</span>

@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Mail, Instagram, Phone, ShieldCheck, ArrowUpRight, Lock } from 'lucide-react';
+import React from 'react';
+import { Mail, Instagram, Linkedin, Phone, ShieldCheck, ArrowUpRight, Lock, FileCheck2, Scale } from 'lucide-react';
+import { LegalTabId } from './LegalComplianceModal';
 
 interface FooterProps {
   onOpenBooking: () => void;
   onOpenAdmin?: () => void;
+  onOpenLegal: (tab: LegalTabId) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) => {
-  const [logoFailed, setLogoFailed] = useState(false);
-
+export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin, onOpenLegal }) => {
   return (
     <footer className="bg-[#FAF8F2] border-t border-[#163832]/12 pt-14 sm:pt-20 pb-10 sm:pb-12 relative text-[#051F20] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* 4-Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 pb-12 sm:pb-16 border-b border-[#163832]/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 pb-12 sm:pb-14 border-b border-[#163832]/10">
           
           {/* Column 1: Brand & UK Entity (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
@@ -64,13 +64,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-[#051F20] transition-colors">
-                  Simple Monthly Pricing
+                <a href="#roi-calculator" className="hover:text-[#051F20] transition-colors">
+                  UK Hire Cost &amp; ROI Calculator
                 </a>
               </li>
               <li>
-                <a href="#why-uk-managed" className="hover:text-[#051F20] transition-colors">
-                  Why UK-Managed
+                <a href="#pricing" className="hover:text-[#051F20] transition-colors">
+                  Simple Monthly Pricing
                 </a>
               </li>
               <li>
@@ -81,30 +81,72 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
             </ul>
           </div>
 
-          {/* Column 3: Trust & Governance (2 cols) */}
+          {/* Column 3: Interactive Legal, Trust & Governance (2 cols) */}
           <div className="lg:col-span-2">
             <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-4 sm:mb-5">
-              Governance
+              Legal &amp; Governance
             </h4>
             <ul className="space-y-3 text-[14px] text-[#163832]/85">
-              <li>Master Services Agreement</li>
-              <li>UK GDPR & ICO IDTA</li>
-              <li>Data Processing Agreement</li>
-              <li>Daily QA Auditing</li>
-              <li>Cover Agent Guarantee</li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onOpenLegal('privacy')}
+                  className="hover:text-[#051F20] hover:underline underline-offset-4 transition-colors text-left cursor-pointer"
+                >
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onOpenLegal('terms')}
+                  className="hover:text-[#051F20] hover:underline underline-offset-4 transition-colors text-left cursor-pointer"
+                >
+                  Terms &amp; Master MSA
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onOpenLegal('gdpr')}
+                  className="hover:text-[#051F20] hover:underline underline-offset-4 transition-colors text-left cursor-pointer"
+                >
+                  UK GDPR &amp; ICO IDTA
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onOpenLegal('security')}
+                  className="hover:text-[#051F20] hover:underline underline-offset-4 transition-colors text-left cursor-pointer"
+                >
+                  Data Security &amp; NDA
+                </button>
+              </li>
             </ul>
           </div>
 
           {/* Column 4: Contact & Consultation (3 cols) */}
           <div className="lg:col-span-3">
             <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#235347] mb-4 sm:mb-5">
-              Contact & UK Entity
+              Contact &amp; UK Entity
             </h4>
             <ul className="space-y-3.5 text-[14px] text-[#163832]/90">
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#235347] shrink-0" />
                 <a href="mailto:info@sirenexis.com" className="hover:text-[#051F20] underline-offset-2 hover:underline">
                   info@sirenexis.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Linkedin className="w-4 h-4 text-[#235347] shrink-0" />
+                <a
+                  href="https://www.linkedin.com/company/sirenexis/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#051F20] underline-offset-2 hover:underline"
+                >
+                  LinkedIn: Sirenexis
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -139,8 +181,66 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
 
         </div>
 
+        {/* ICO / UK Registration & Security Compliance Bar */}
+        <div className="py-5 border-b border-[#163832]/10 flex flex-wrap items-center justify-between gap-4 text-xs text-[#163832]/85">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
+            <button
+              type="button"
+              onClick={() => onOpenLegal('terms')}
+              className="inline-flex items-center gap-2 font-medium hover:text-[#051F20] transition-colors cursor-pointer"
+            >
+              <Scale className="w-3.5 h-3.5 text-[#235347] shrink-0" />
+              <span>UK Registered Company (English &amp; Welsh Law)</span>
+            </button>
+            <span className="hidden sm:inline text-[#163832]/30" aria-hidden="true">•</span>
+            <button
+              type="button"
+              onClick={() => onOpenLegal('security')}
+              className="inline-flex items-center gap-2 font-medium hover:text-[#051F20] transition-colors cursor-pointer"
+            >
+              <Lock className="w-3.5 h-3.5 text-[#235347] shrink-0" />
+              <span>100% Back-to-Back NDA Protected</span>
+            </button>
+            <span className="hidden sm:inline text-[#163832]/30" aria-hidden="true">•</span>
+            <button
+              type="button"
+              onClick={() => onOpenLegal('gdpr')}
+              className="inline-flex items-center gap-2 font-medium hover:text-[#051F20] transition-colors cursor-pointer"
+            >
+              <FileCheck2 className="w-3.5 h-3.5 text-[#235347] shrink-0" />
+              <span>UK GDPR &amp; ICO IDTA Compliant</span>
+            </button>
+          </div>
+
+          <div className="flex items-center gap-4 text-xs font-medium text-[#235347]">
+            <button
+              type="button"
+              onClick={() => onOpenLegal('privacy')}
+              className="hover:underline underline-offset-4 cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <span aria-hidden="true">·</span>
+            <button
+              type="button"
+              onClick={() => onOpenLegal('terms')}
+              className="hover:underline underline-offset-4 cursor-pointer"
+            >
+              Terms of Service
+            </button>
+            <span aria-hidden="true">·</span>
+            <button
+              type="button"
+              onClick={() => onOpenLegal('security')}
+              className="hover:underline underline-offset-4 cursor-pointer"
+            >
+              Security &amp; NDA
+            </button>
+          </div>
+        </div>
+
         {/* Small Bottom Strip */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#235347]/90 font-medium text-center sm:text-left">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#235347]/90 font-medium text-center sm:text-left">
           <div>
             Sirenexis • UK Entity • UK Bank • English Law • © 2026
           </div>
@@ -165,3 +265,4 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAdmin }) =>
     </footer>
   );
 };
+

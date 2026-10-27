@@ -22,16 +22,26 @@ import { BookingModal } from './components/BookingModal';
 import { SavingsCalculatorModal } from './components/SavingsCalculatorModal';
 import { AdminPortalModal } from './components/AdminPortalModal';
 import { ScrollProgressBar } from './components/ScrollProgressBar';
+import { RoiCalculatorSection } from './components/RoiCalculatorSection';
+import { LegalComplianceModal, LegalTabId } from './components/LegalComplianceModal';
+import { BackToTopButton } from './components/BackToTopButton';
 
 export default function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [calculatorModalOpen, setCalculatorModalOpen] = useState(false);
   const [adminModalOpen, setAdminModalOpen] = useState(false);
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState<LegalTabId>('privacy');
   const [selectedPlan, setSelectedPlan] = useState<string | undefined>(undefined);
 
   const handleOpenBooking = (plan?: string) => {
     setSelectedPlan(plan);
     setBookingModalOpen(true);
+  };
+
+  const handleOpenLegal = (tab: LegalTabId) => {
+    setLegalTab(tab);
+    setLegalModalOpen(true);
   };
 
   const handleScrollToPilot = () => {
@@ -84,9 +94,12 @@ export default function App() {
 
         {/* 10. Pricing Section: 3-Tier Cards with Featured Middle Plan Elevated */}
         <PricingSection
-          onOpenBooking={() => handleOpenBooking()}
+          onOpenBooking={(plan) => handleOpenBooking(plan)}
           onOpenCalculator={() => setCalculatorModalOpen(true)}
         />
+
+        {/* 10b. Embedded Interactive UK Hire vs Sirenexis Cost & ROI Comparison */}
+        <RoiCalculatorSection onOpenBooking={(plan) => handleOpenBooking(plan)} />
 
         {/* 11. Testimonials: Editorial Layout (1 Large + 2 Small) with Serif Quotes */}
         <TestimonialsSection />
@@ -102,7 +115,11 @@ export default function App() {
       <Footer
         onOpenBooking={() => handleOpenBooking()}
         onOpenAdmin={() => setAdminModalOpen(true)}
+        onOpenLegal={handleOpenLegal}
       />
+
+      {/* Floating Back to Top Button (appears after scrolling past Hero) */}
+      <BackToTopButton />
 
       {/* Interactive Modals */}
       <BookingModal
@@ -114,6 +131,13 @@ export default function App() {
       <SavingsCalculatorModal
         isOpen={calculatorModalOpen}
         onClose={() => setCalculatorModalOpen(false)}
+        onBookCall={(plan) => handleOpenBooking(plan)}
+      />
+
+      <LegalComplianceModal
+        isOpen={legalModalOpen}
+        initialTab={legalTab}
+        onClose={() => setLegalModalOpen(false)}
         onBookCall={() => handleOpenBooking()}
       />
 

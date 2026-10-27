@@ -8,22 +8,104 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [logoFailed, setLogoFailed] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const isClickScrollingRef = React.useRef(false);
+  const clickScrollTimeoutRef = React.useRef<number | null>(null);
 
   const navLinks = [
-    { name: 'How It Works', href: '#how-it-works' },
     { name: 'What We Cover', href: '#what-we-cover' },
-    { name: 'Pricing', href: '#pricing' },
+    { name: 'How It Works', href: '#how-it-works' },
     { name: 'Why UK-Managed', href: '#why-uk-managed' },
+    { name: 'Pricing', href: '#pricing' },
   ];
+
+  useEffect(() => {
+    const sectionIds = ['what-we-cover', 'how-it-works', 'why-uk-managed', 'pricing'];
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 20);
+
+      if (isClickScrollingRef.current) return;
+
+      // Clear active highlight when near the top of the page (Hero area)
+      if (scrollY < 260) {
+        setActiveSection('');
+        return;
+      }
+
+      const triggerLine = Math.min(180, window.innerHeight * 0.28);
+      let currentActive = '';
+      let closestTop = -Infinity;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+
+        // Direct hit: section spans across the viewport trigger line
+        if (rect.top <= triggerLine && rect.bottom >= 110) {
+          currentActive = `#${id}`;
+          break;
+        }
+
+        // Fallback for adjacent companion blocks (e.g. Pilot / ROI Calculator right below a tracked section)
+        if (rect.top <= triggerLine && rect.bottom > -420 && rect.top > closestTop) {
+          closestTop = rect.top;
+          currentActive = `#${id}`;
+        }
+      }
+
+      setActiveSection(currentActive);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      if (clickScrollTimeoutRef.current) {
+        window.clearTimeout(clickScrollTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const targetEl = document.getElementById(targetId);
+
+    setActiveSection(href);
+    setMobileMenuOpen(false);
+
+    if (targetEl) {
+      isClickScrollingRef.current = true;
+      if (clickScrollTimeoutRef.current) {
+        window.clearTimeout(clickScrollTimeoutRef.current);
+      }
+
+      const headerOffset = 92;
+      const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = Math.max(0, elementPosition - headerOffset);
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      clickScrollTimeoutRef.current = window.setTimeout(() => {
+        isClickScrollingRef.current = false;
+      }, 750);
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setActiveSection('');
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -38,6 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           {/* Brand Zone */}
           <a
             href="#"
+            onClick={handleLogoClick}
             className="flex items-center gap-1.5 sm:gap-2 text-[#051F20] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#235347] rounded-lg group transition-transform active:scale-[0.98] shrink-0 min-w-0"
           >
             <img
@@ -66,17 +149,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             </span>
           </a>
 
-          {/* Nav Links: Frosted pill hover */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2 text-[14.5px] font-medium text-[#163832] shrink-0">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="px-3.5 py-1.5 rounded-full text-[#163832] hover:text-[#051F20] hover:bg-[#163832]/6 transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap active:scale-[0.96]"
-              >
-                {link.name}
-              </a>
-            ))}
+          {/* Nav Links: Scroll-spy active pill & frosted hover */}
+          <nav aria-label="Primary Navigation" className="hidden md:flex items-center gap-1 lg:gap-1.5 text-[14.5px] font-medium text-[#163832] shrink-0">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`relative px-3.5 py-1.5 rounded-full transition-all duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap active:scale-[0.96] flex items-center gap-1.5 ${
+                    isActive
+                      ? 'bg-[#051F20] text-[#FAF8F2] font-semibold shadow-[0_4px_14px_rgba(5,31,32,0.18)]'
+                      : 'text-[#163832] hover:text-[#051F20] hover:bg-[#163832]/6'
+                  }`}
+                >
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                      isActive ? 'bg-[#8EB69B] scale-100 opacity-100' : 'bg-transparent scale-0 opacity-0 w-0'
+                    }`}
+                  />
+                  <span>{link.name}</span>
+                </a>
+              );
+            })}
           </nav>
 
           {/* Primary Action Button */}
@@ -104,17 +201,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-2 liquid-glass rounded-2xl p-4 sm:p-5 shadow-2xl border border-white/80 max-h-[calc(100dvh-5rem)] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2.5 text-base font-medium text-[#163832] hover:text-[#051F20] hover:bg-[#DAF1DE]/40 rounded-lg transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+            <div className="flex flex-col gap-1.5">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    aria-current={isActive ? 'location' : undefined}
+                    className={`px-3.5 py-2.5 text-base rounded-xl transition-all flex items-center justify-between ${
+                      isActive
+                        ? 'bg-[#051F20] text-[#FAF8F2] font-semibold shadow-sm'
+                        : 'font-medium text-[#163832] hover:text-[#051F20] hover:bg-[#DAF1DE]/40'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    {isActive && (
+                      <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-[#DAF1DE] font-semibold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#8EB69B]" />
+                        Active
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
               <div className="pt-3 border-t border-[#163832]/10 mt-1 flex flex-col gap-2">
                 <button
                   onClick={() => {

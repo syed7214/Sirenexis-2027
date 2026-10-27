@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Calendar, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 import { validateBookingForm } from '../utils/calculator';
 import { saveQuery } from '../utils/leadsStorage';
@@ -17,13 +17,33 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
     phone: '',
     weeklyEnquiries: '20-50 enquiries/day',
     channels: ['Email Support', 'Live Chat'],
-    preferredDate: '2026-10-22',
-    preferredTime: '10:30 AM UK (GMT+1)',
+    preferredDate: new Date().toISOString().split('T')[0],
+    preferredTime: '10:30 AM UK',
     notes: defaultPlan ? `Interested in ${defaultPlan}` : '',
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (isOpen) {
+      setSubmitted(false);
+      setErrors({});
+      setFormData((prev) => ({
+        ...prev,
+        notes: defaultPlan ? `Interested in ${defaultPlan}` : '',
+      }));
+    }
+  }, [isOpen, defaultPlan]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -72,15 +92,28 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#051F20]/75 backdrop-blur-md transition-opacity duration-300">
-      <div className="relative w-full max-w-2xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[24px] sm:rounded-[28px] shadow-2xl overflow-hidden max-h-[90dvh] flex flex-col apple-sheet-animate">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#051F20]/75 backdrop-blur-md transition-opacity duration-300"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-2xl bg-[#FAF8F2] border border-[#8EB69B]/50 rounded-[24px] sm:rounded-[28px] shadow-2xl overflow-hidden max-h-[90dvh] flex flex-col apple-sheet-animate"
+        onClick={(e) => e.stopPropagation()}
+      >
         
         {/* Top Header */}
         <div className="p-5 sm:p-7 border-b border-[#163832]/10 flex items-center justify-between bg-[#F4F0E6]/60 shrink-0">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#235347] bg-[#DAF1DE] px-2.5 py-0.5 rounded-full border border-[#8EB69B]/40">
-              Direct Briefing
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#235347] bg-[#DAF1DE] px-2.5 py-0.5 rounded-full border border-[#8EB69B]/40">
+                Direct Briefing
+              </span>
+              {defaultPlan && (
+                <span className="text-[11px] font-semibold text-[#051F20] bg-white/90 px-2.5 py-0.5 rounded-full border border-[#163832]/15">
+                  Plan: {defaultPlan}
+                </span>
+              )}
+            </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#051F20] mt-1">
               Book a 15-Min Call
             </h3>
@@ -89,6 +122,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, def
             </p>
           </div>
           <button
+            type="button"
             onClick={onClose}
             className="p-2 text-[#051F20] hover:bg-black/5 rounded-full transition-colors cursor-pointer shrink-0"
             aria-label="Close dialog"

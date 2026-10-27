@@ -59,6 +59,9 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
   const [editingNotesId, setEditingNotesId] = useState<string | null>(null);
   const [tempNotes, setTempNotes] = useState<string>('');
   const [showAddModal, setShowAddModal] = useState(false);
+  const [manualFormError, setManualFormError] = useState<string | null>(null);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
+  const [confirmReset, setConfirmReset] = useState(false);
 
   // Quick form for manual query logging
   const [newManualQuery, setNewManualQuery] = useState({
@@ -96,6 +99,21 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
       window.removeEventListener('storage', handleSync);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (showAddModal) {
+          setShowAddModal(false);
+        } else {
+          onClose();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, showAddModal, onClose]);
 
   if (!isOpen) return null;
 
@@ -153,22 +171,26 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
     setEditingNotesId(null);
   };
 
-  // Delete query
+  // Delete query (two-click inline confirm, iframe-safe)
   const handleDeleteQuery = (id: string) => {
-    if (window.confirm('Are you sure you want to delete this enquiry? This action cannot be undone.')) {
-      const updated = deleteQuery(id);
-      setQueries(updated);
-      if (selectedLeadId === id) setSelectedLeadId(null);
+    if (confirmDeleteId !== id) {
+      setConfirmDeleteId(id);
+      return;
     }
+    const updated = deleteQuery(id);
+    setQueries(updated);
+    setConfirmDeleteId(null);
+    if (selectedLeadId === id) setSelectedLeadId(null);
   };
 
   // Add manual query
   const handleAddManualSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newManualQuery.fullName || !newManualQuery.businessEmail || !newManualQuery.companyName) {
-      alert('Please fill out Full Name, Email, and Company Name');
+    if (!newManualQuery.fullName.trim() || !newManualQuery.businessEmail.trim() || !newManualQuery.companyName.trim()) {
+      setManualFormError('Please fill out Full Name, Email, and Company Name.');
       return;
     }
+    setManualFormError(null);
     saveQuery({
       ...newManualQuery,
       source: 'Direct Enquiry',
@@ -182,19 +204,23 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
       phone: '',
       weeklyEnquiries: '20-50 enquiries/day',
       channels: ['Email Support', 'Live Chat'],
-      preferredTime: '10:30 AM UK (GMT+1)',
+      preferredTime: '10:30 AM UK',
       notes: '',
       source: 'Direct Enquiry',
     });
     loadQueries();
   };
 
-  // Reset to samples
+  // Reset to samples (two-click inline confirm, iframe-safe)
   const handleResetToSamples = () => {
-    if (window.confirm('Reset enquiry list to realistic UK client samples?')) {
-      const samples = resetToSampleQueries();
-      setQueries(samples);
+    if (!confirmReset) {
+      setConfirmReset(true);
+      setTimeout(() => setConfirmReset(false), 3500);
+      return;
     }
+    const samples = resetToSampleQueries();
+    setQueries(samples);
+    setConfirmReset(false);
   };
 
   // Filter queries
@@ -507,9 +533,14 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                   type="button"
                   onClick={handleResetToSamples}
                   title="Reset sample leads"
-                  className="p-2 rounded-xl bg-white border border-[#163832]/20 hover:bg-black/5 text-[#163832]/70 hover:text-[#051F20] text-xs transition-colors cursor-pointer"
+                  className={`p-2 rounded-xl border text-xs transition-colors cursor-pointer flex items-center gap-1 ${
+                    confirmReset
+                      ? 'bg-amber-100 border-amber-400 text-amber-900 font-semibold px-2.5'
+                      : 'bg-white border-[#163832]/20 hover:bg-black/5 text-[#163832]/70 hover:text-[#051F20]'
+                  }`}
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
+                  {confirmReset && <span>Confirm Reset?</span>}
                 </button>
               </div>
 
@@ -647,9 +678,14 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                               type="button"
                               onClick={() => handleDeleteQuery(query.id)}
                               title="Delete enquiry"
-                              className="p-1.5 text-rose-500 hover:text-rose-700 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
+                              className={`p-1.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1 text-xs ${
+                                confirmDeleteId === query.id
+                                  ? 'bg-rose-600 text-white px-2.5 font-semibold'
+                                  : 'text-rose-500 hover:text-rose-700 hover:bg-rose-50'
+                              }`}
                             >
                               <Trash2 className="w-3.5 h-3.5" />
+                              {confirmDeleteId === query.id && <span>Confirm</span>}
                             </button>
                           </div>
 
@@ -946,10 +982,17 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                 />
               </div>
 
+              {manualFormError && (
+                <p className="text-xs text-rose-600 font-medium">{manualFormError}</p>
+              )}
+
               <div className="flex justify-end gap-2 pt-2">
                 <button
                   type="button"
-                  onClick={() => setShowAddModal(false)}
+                  onClick={() => {
+                    setShowAddModal(false);
+                    setManualFormError(null);
+                  }}
                   className="px-4 py-2 rounded-xl text-xs font-semibold text-[#163832] hover:bg-black/5"
                 >
                   Cancel
